@@ -1,0 +1,225 @@
+{
+  "main": {
+    "id": "7ef54c58b569cbce",
+    "type": "split",
+    "children": [
+      {
+        "id": "ebb5161e65debfaa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "535ea52fcc552355",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Go GMP 调度模型"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9146b1469a3665be",
+    "type": "split",
+    "children": [
+      {
+        "id": "e8f717b88e7861e0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "53dd8fc1d46de400",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "34f96149c1924cd8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "4b484b6b3ebb5d4f",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b24a899a61a8a59a",
+    "type": "split",
+    "children": [
+      {
+        "id": "84e44ef05b289763",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7e7fd7acfb371597",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Go GMP 调度模型 的反向链接列表"
+            }
+          },
+          {
+            "id": "358920a9632190b4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Go GMP 调度模型 的出链列表"
+            }
+          },
+          {
+            "id": "77d677a6211a2f69",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "c10c6d1149c527e3",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "7bacf5600f8b95da",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Go GMP 调度模型 的大纲"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "7bacf5600f8b95da",
+  "lastOpenFiles": [
+    "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Goroutine与并发模型.md",
+    "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+    "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
+    "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go语言基础与类型系统.md",
+    "20-Wiki/01-计算机基础/计算机基础.md",
+    "20-Wiki/02-编程语言/编程语言.md",
+    "20-Wiki/02-编程语言/Go/06-内存管理与Runtime/内存管理与Runtime.md",
+    "20-Wiki/02-编程语言/Go/06-内存管理与Runtime",
+    "20-Wiki/02-编程语言/Go/05-Context与生命周期管理/Context与生命周期管理.md",
+    "20-Wiki/02-编程语言/Go/05-Context与生命周期管理",
+    "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型",
+    "20-Wiki/02-编程语言/Go/03-错误处理与资源管理/错误处理与资源管理.md",
+    "20-Wiki/02-编程语言/Go/03-错误处理与资源管理",
+    "20-Wiki/02-编程语言/Go/02-方法接口与抽象/方法接口与抽象.md",
+    "20-Wiki/02-编程语言/Go/02-方法接口与抽象",
+    "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统",
+    "20-Wiki/02-编程语言/Go/内存管理与Runtime/内存管理与Runtime.md",
+    "20-Wiki/02-编程语言/Go/Context与生命周期管理/Context与生命周期管理.md",
+    "20-Wiki/02-编程语言/Go/Goroutine与并发模型/Goroutine与并发模型.md",
+    "20-Wiki/02-编程语言/Go/错误处理与资源管理/错误处理与资源管理.md",
+    "20-Wiki/02-编程语言/Go/方法接口与抽象/方法接口与抽象.md",
+    "20-Wiki/02-编程语言/Go/Go语言基础与类型系统/Go语言基础与类型系统.md",
+    "20-Wiki/02-编程语言/Go/Go.md",
+    "20-Wiki/02-编程语言/Go/内存管理与Runtime",
+    "20-Wiki/02-编程语言/Go/Context与生命周期管理",
+    "20-Wiki/02-编程语言/Go/Goroutine与并发模型",
+    "20-Wiki/02-编程语言/Go/错误处理与资源管理",
+    "编译原理.md",
+    "20-Wiki/Wiki-首页.md",
+    "操作系统.md",
+    "20-Wiki/10-工程能力与项目表达/工程能力与项目表达.md",
+    "20-Wiki/09-AI-Infra/AI Infra.md",
+    "20-Wiki/08-可观测性与稳定性/可观测性与稳定性.md",
+    "20-Wiki/07-云计算与云原生/云计算与云原生.md",
+    "20-Wiki/06-分布式设计/分布式设计.md",
+    "20-Wiki/05-消息服务/消息服务.md"
+  ]
+}

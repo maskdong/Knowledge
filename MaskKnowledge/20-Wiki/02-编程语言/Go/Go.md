@@ -1,0 +1,16 @@
+---
+type: moc
+layer: 3
+domain: 编程语言
+language: Go
+status: seed
+---
+
+# Go
+
+- [[01-Go语言基础与类型系统/Go语言基础与类型系统|Go 语言基础与类型系统]]
+- [[02-方法接口与抽象/方法接口与抽象|方法、接口与抽象]]
+- [[03-错误处理与资源管理/错误处理与资源管理|错误处理与资源管理]]
+- [[04-Goroutine与并发模型/Goroutine与并发模型|Goroutine 与并发模型]]
+- [[05-Context与生命周期管理/Context与生命周期管理|Context 与生命周期管理]]
+- [[06-内存管理与Runtime/内存管理与Runtime|内存管理与 Runtime]]

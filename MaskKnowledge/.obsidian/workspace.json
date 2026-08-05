@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "77ec754e89b46b10",
+        "id": "8842517c9cc32af8",
         "type": "tabs",
         "children": [
           {
-            "id": "3f32788dc74e7942",
+            "id": "160ecf36b6629894",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Go Map"
+              "title": "新标签页"
             }
           }
         ]
@@ -94,7 +90,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +99,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Go Map 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
@@ -113,12 +108,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Go Map 的出链列表"
+              "title": "出链"
             }
           },
           {
@@ -156,13 +150,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Go Map 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -205,10 +198,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "3f32788dc74e7942",
+  "active": "160ecf36b6629894",
   "lastOpenFiles": [
-    "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice.md",
     "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
+    "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice.md",
     "20-Wiki/02-编程语言/Go/02-方法接口与抽象/方法接口与抽象.md",
     "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
     "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Goroutine与并发模型.md",

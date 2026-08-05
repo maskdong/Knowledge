@@ -1,9 +1,10 @@
 ---
 type: moc
-layer: 3
-domain: 编程语言
-language: Go
-status: seed
+tags:
+  - wiki
+  - programming-language/go
+date: 2026-08-05
+description: Go 语言基础、并发、运行时与工程实践的导航页。
 ---
 
 # Go

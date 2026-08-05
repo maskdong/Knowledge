@@ -1,19 +1,13 @@
-
 ---
 type: note
-layer: 4
-domain: 编程语言
-language: Go
-module: Goroutine 与并发模型
-topic: GMP 调度模型
-status: draft
 tags:
   - wiki
-  - go
+  - programming-language/go
   - go/concurrency
   - go/runtime
   - interview
-updated: 2026-08-04
+date: 2026-08-05
+description: 解释 Go GMP 调度模型、阻塞处理、任务窃取与并行度约束。
 ---
 
 > 面向 Go 后端、云计算、AI Infra 和可观测研发面试。

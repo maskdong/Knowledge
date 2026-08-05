@@ -1,7 +1,10 @@
 ---
 type: moc
-layer: 1
-status: seed
+tags:
+  - wiki
+  - index
+date: 2026-08-05
+description: 整个技术知识库的总导航入口。
 ---
 
 # Wiki 首页

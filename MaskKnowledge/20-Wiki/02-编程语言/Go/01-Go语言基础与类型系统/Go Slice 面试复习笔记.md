@@ -1,18 +1,12 @@
-
 ---
 type: note
-layer: 4
-domain: 编程语言
-language: Go
-module: Go语言基础与类型系统
-topic: Slice
-status: draft
 tags:
   - wiki
-  - go
+  - programming-language/go
   - go/slice
   - interview
-updated: 2026-08-04
+date: 2026-08-05
+description: 系统梳理 Go Slice 的底层结构、容量、扩容、共享与复制语义。
 ---
 
 ## 1. 从数组到 Slice：为什么需要切片
@@ -32,11 +26,9 @@ type slice struct {
 因此，Slice 有三个必须同时理解的特征：
 
 - Slice 变量保存的是底层数组指针、长度和容量，不直接保存全部元素；
-    
-- 多个 Slice 可以引用同一个底层数组；
-    
+- 多个 Slice 可以引用同一个底层数组；    
 - 复制 Slice 只会复制 Slice 描述符，不会自动复制底层数据。
-    
+
 
 ```
 a := []int{1, 2, 3}

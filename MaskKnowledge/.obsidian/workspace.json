@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "ebb5161e65debfaa",
+        "id": "77ec754e89b46b10",
         "type": "tabs",
         "children": [
           {
-            "id": "535ea52fcc552355",
+            "id": "3f32788dc74e7942",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Go GMP 调度模型"
+              "title": "Go Slice 面试复习笔记"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Go GMP 调度模型 的反向链接列表"
+              "title": "Go Slice 面试复习笔记 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Go GMP 调度模型 的出链列表"
+              "title": "Go Slice 面试复习笔记 的出链列表"
             }
           },
           {
@@ -156,17 +156,37 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Go GMP 调度模型 的大纲"
+              "title": "Go Slice 面试复习笔记 的大纲"
+            }
+          },
+          {
+            "id": "b4e17393e1e2f9f3",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "7b785c0b79343680",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
@@ -180,14 +200,17 @@
       "daily-notes:打开/创建今天的日记": false,
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
-      "bases:新建数据库": false
+      "bases:新建数据库": false,
+      "realclaudian:Open Claudian": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7bacf5600f8b95da",
+  "active": "3f32788dc74e7942",
   "lastOpenFiles": [
-    "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Goroutine与并发模型.md",
-    "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+    "20-Wiki/02-编程语言/Go/02-方法接口与抽象/方法接口与抽象.md",
     "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
+    "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
+    "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Goroutine与并发模型.md",
     "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go语言基础与类型系统.md",
     "20-Wiki/01-计算机基础/计算机基础.md",
     "20-Wiki/02-编程语言/编程语言.md",
@@ -198,7 +221,6 @@
     "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型",
     "20-Wiki/02-编程语言/Go/03-错误处理与资源管理/错误处理与资源管理.md",
     "20-Wiki/02-编程语言/Go/03-错误处理与资源管理",
-    "20-Wiki/02-编程语言/Go/02-方法接口与抽象/方法接口与抽象.md",
     "20-Wiki/02-编程语言/Go/02-方法接口与抽象",
     "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统",
     "20-Wiki/02-编程语言/Go/内存管理与Runtime/内存管理与Runtime.md",

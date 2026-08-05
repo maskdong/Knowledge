@@ -1,0 +1,8 @@
+{
+  "types": {
+    "type": "text",
+    "tags": "multitext",
+    "date": "date",
+    "description": "text"
+  }
+}

@@ -1,8 +1,10 @@
 ---
 type: moc
-layer: 2
-domain: AI Infra
-status: seed
+tags:
+  - wiki
+  - ai-infrastructure
+date: 2026-08-05
+description: AI 训练、推理、加速器、数据检索与评测基础设施的导航页。
 ---
 
 # AI Infra

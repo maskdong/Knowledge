@@ -186,7 +186,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
@@ -207,9 +207,9 @@
   },
   "active": "3f32788dc74e7942",
   "lastOpenFiles": [
-    "20-Wiki/02-编程语言/Go/02-方法接口与抽象/方法接口与抽象.md",
+    "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice.md",
     "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
-    "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
+    "20-Wiki/02-编程语言/Go/02-方法接口与抽象/方法接口与抽象.md",
     "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
     "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Goroutine与并发模型.md",
     "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go语言基础与类型系统.md",

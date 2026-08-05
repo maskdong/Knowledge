@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
+                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Go Slice 面试复习笔记"
+              "title": "Go Map"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
+                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Go Slice 面试复习笔记 的反向链接列表"
+              "title": "Go Map 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
+                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Go Slice 面试复习笔记 的出链列表"
+              "title": "Go Map 的出链列表"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
+                "file": "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Go Slice 面试复习笔记 的大纲"
+              "title": "Go Map 的大纲"
             }
           },
           {
@@ -208,6 +208,7 @@
   "active": "3f32788dc74e7942",
   "lastOpenFiles": [
     "20-Wiki/02-编程语言/Go/02-方法接口与抽象/方法接口与抽象.md",
+    "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
     "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice 面试复习笔记.md",
     "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
     "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Goroutine与并发模型.md",
@@ -241,7 +242,6 @@
     "20-Wiki/09-AI-Infra/AI Infra.md",
     "20-Wiki/08-可观测性与稳定性/可观测性与稳定性.md",
     "20-Wiki/07-云计算与云原生/云计算与云原生.md",
-    "20-Wiki/06-分布式设计/分布式设计.md",
-    "20-Wiki/05-消息服务/消息服务.md"
+    "20-Wiki/06-分布式设计/分布式设计.md"
   ]
 }

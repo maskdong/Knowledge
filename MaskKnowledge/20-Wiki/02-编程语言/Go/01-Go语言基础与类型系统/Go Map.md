@@ -164,14 +164,101 @@ Map
 ```
 
 #### slot
-一个 Slot 保存一组KV，真正存放
+一个 Slot 保存一组KV，真正存放数据的结构。
+Slot 本身不负责快速查询。它旁边有对应的 Control Byte，记录：
+- Slot 是否为空；
+- Slot 是否已删除；
+- Slot 被占用时，对应 Key 的 `H2`。
 
-Swiss Table 的主要优势：
+#### Group
+一个 Group 包含，一次检查 8 个 Slot。
 
-- 控制信息紧凑，可以快速筛选一组 Slot；
-- Key/Value 存储更连续，CPU Cache 友好；
-- 开放寻址减少指针跳转；
-- 避免旧实现 overflow bucket 链带来的额外缓存缺失。
+```
+Group
+├── Control Word
+│   ├── ctrl[0]
+│   ├── ctrl[1]
+│   └── ... ctrl[7]
+└── Slots
+    ├── slot[0]
+    ├── slot[1]
+    └── ... slot[7]
+```
+
+示例：
+
+```
+Control: [23][89][50][E ][D ][E ][E ][E ]
+Slot:    [K1][K2][K3][  ][  ][  ][  ][  ]
+```
+
+其中：
+- `23、89、50`：Slot 已占用，数字表示对应 Key 的 `H2`；
+- `E`：Empty，从未被占用；
+- `D`：Deleted，曾被占用但已经删除。
+Group 是查询和探测的基本单位。查询不会先逐个比较 8 个完整 Key，而是先一次性比较 8 个 Control Byte。
+
+#### Table
+由多个 Group 组成的子哈希表
+Table 是一张可以独立完成查询、插入和扩容的哈希表：
+
+```
+Table
+├── Group 0：8 Slots
+├── Group 1：8 Slots
+├── Group 2：8 Slots
+└── Group 3：8 Slots
+```
+
+Table 内部负责：
+
+- 根据 `H1` 找到起始 Group；
+- 按探测序列检查其他 Group；
+- 统计已使用元素和增长额度；
+- 容量不足时进行扩容或者分裂。
+
+Go 将单个 Table 的最大容量限制为 1024 个 Slot。达到上限后，不再无限扩大这张 Table，而是拆成两张 Table。
+
+
+#### Directory
+当 Map 比较大、存在多张 Table 时，Directory 使用哈希值的高位选择目标 Table：
+Directory 只保存“哈希前缀到 Table”的映射。
+
+```
+Directory
+├── entry[0] → Table A
+├── entry[1] → Table A
+├── entry[2] → Table B
+└── entry[3] → Table C
+```
+
+#### 写入&读取流程
+```
+写入流程：
+
+计算 hash
+→ Directory 选择 Table
+→ H1 定位起始 Group （H1 64位 hash 值的前 57 位）
+→ H2 筛选候选 Slot  （H2 64位 hash 值的后 7 位）
+→ 比较完整 Key
+├── Key 已存在：更新 Value
+└── Key 不存在
+    → 沿探测序列寻找 Empty/Deleted
+    → 必要时扩容
+    → 写入 Key、Value 和 H2
+    
+读取流程：
+hash(key)
+→ Directory 选择 Table
+→ H1 定位起始 Group
+→ H2 批量筛选 Slot
+→ 比较候选完整 Key
+├── 命中：返回 Value
+├── 未命中但遇到 Empty：返回不存在
+└── 未命中且没有 Empty：继续探测
+```
+
+#### Swiss Table 描述
 
 Swiss Table 本质上是一种开放寻址哈希表。它将 8 个 Key/Value Slot 组成一个 Group，并为每个 Group 维护一个 8 字节的 Control Word。Key 的哈希被拆为 H1 和 H2：H1 用来定位起始 Group并生成探测序列，H2 是低 7 位，存储在对应的控制字节中。查询时可以一次比较 Group 内 8 个 H2，只对匹配的候选 Slot 比较完整 Key，因此减少了 Key 比较和内存访问。发生冲突时通过二次探测寻找其他 Group，而不是使用旧版 Go Map 的 overflow bucket。Go 还通过 Directory 管理多个独立 Table，使扩容只影响部分数据，控制单次扩容带来的延迟。
 最后记住这条主线即可：
@@ -184,6 +271,7 @@ hash(key)
 → 完整 Key 确认
 → 未命中且没有 Empty 就继续探测
 ```
+
 
 ### 2.2 Go 1.23 及以前：bucket 实现
 
@@ -199,6 +287,8 @@ hash(key)
 旧知识仍可能被面试官追问，但回答时要明确版本：
 
 > `hmap/bmap + overflow bucket` 是 Go 1.23 及以前的主要实现；Go 1.24 起已经切换为 Swiss Table。
+
+
 
 ## 3. 哈希与冲突
 
@@ -243,9 +333,6 @@ Go 1.24+ 的 Swiss Table 使用开放寻址：目标位置被占用时，按照�
 
 平均情况下，查找、插入和删除接近 `O(1)`；大量冲突时探测或链路变长，最坏可退化到 `O(n)`。
 
-### 3.4 哈希种子
-
-运行时会使用哈希种子，降低攻击者构造大量冲突 Key 的风险。工程上不能依赖哈希位置或 Map 遍历顺序来表达业务顺序。
 
 ## 4. 扩容与迁移
 
@@ -408,14 +495,6 @@ _ = loaded
 m.Delete("name")
 ```
 
-常用方法：
-
-- `Load`、`Store`、`Delete`；
-- `LoadOrStore`、`LoadAndDelete`；
-- `Swap`；
-- `CompareAndSwap`、`CompareAndDelete`；
-- `Range`；
-- `Clear`。
 
 ### 6.2 适用场景
 
@@ -424,11 +503,6 @@ m.Delete("name")
 1. 某个 Key 只写一次、之后大量读取，例如只增不改的缓存；
 2. 多个 Goroutine 读取、写入和覆盖互不相交的 Key。
 
-典型例子：
-
-- 基本只增不改的缓存；
-- 按连接 ID 保存连接；
-- 不同 Key 高度独立的注册表。
 
 ### 6.3 不适用场景
 
@@ -453,158 +527,18 @@ if !ok {
 
 可以在业务层封装泛型类型，隐藏断言细节，但这不改变其适用边界。
 
-### 6.4 `Range` 不是一致性快照
-
-`Range` 不保证看到某一时刻的完整一致快照。并发修改期间，不同 Key 对应的 Value 可能来自遍历过程中的不同时间点。
-
-如果业务需要强一致快照，应使用外部锁，或者在锁内复制出独立数据后再遍历。
-
-### 6.5 单次并发安全不等于复合操作原子
-
-```go
-value, _ := m.Load(key)
-m.Store(key, value.(int)+1)
-```
-
-上述代码仍可能丢失更新。应根据业务使用：
-
-- `CompareAndSwap` 重试；
-- Value 内部的原子变量；
-- 显式锁；
-- 重新设计状态归属。
 
 ### 6.6 选型速查
 
-| 场景 | 推荐方案 |
-|---|---|
-| 单 Goroutine 使用 | 普通 Map |
-| 初始化完成后只读 | 普通 Map，发布前完成初始化 |
-| 一般并发读写 | `map + Mutex/RWMutex` |
-| 多步原子业务操作 | `map + Mutex` |
-| Key 写一次、之后大量读取 | 可考虑 `sync.Map` |
-| 不同 Key 高度独立、并发度高 | 可考虑 `sync.Map` |
-| 已确认全局锁竞争严重 | 可考虑分片 Map |
-
-## 7. 工程实践
-
-### 7.1 预估容量
-
-已知元素数量时，提供合理容量提示：
-
-```go
-m := make(map[string]Metric, expectedCount)
-```
-
-这可以减少增长和重新组织，但过度预估会浪费内存。
-
-### 7.2 组合 Key 优先使用 Struct
-
-```go
-type Key struct {
-    TenantID string
-    MetricID string
-}
-```
-
-与字符串拼接相比，Struct Key 通常语义更明确，也避免分隔符转义和碰撞问题。若 Struct 很大，则需要评估哈希、比较和内存成本。
-
-### 7.3 Value 使用值还是指针
-
-| 方案 | 优点 | 代价与风险 |
-|---|---|---|
-| `map[K]V` | 值语义清晰，小对象局部性好 | 修改 Struct 需取出再写回，大对象有复制成本 |
-| `map[K]*V` | 修改方便，可避免复制大对象 | 共享修改、nil、间接访问、逃逸和 GC 压力 |
-
-指针不一定更快，选择应基于对象大小、所有权语义、更新方式和 Benchmark。
-
-### 7.4 Map 中保存 Slice
-
-```go
-m := map[string][]int{"a": {1, 2, 3}}
-values := m["a"]
-values[0] = 100
-```
-
-Slice Header 被复制，但底层数组仍可能共享，因此修改元素可能反映到 Map 中保存的 Slice。
-
-`append` 可能更换底层数组，应将新的 Slice Header 写回：
-
-```go
-m["a"] = append(m["a"], 4)
-```
-
-### 7.5 嵌套 Map
-
-```go
-outer := map[string]map[string]int{}
-// outer["tenant"]["count"] = 1 // 对 nil Map 写入会 Panic
-```
-
-应先初始化内层 Map：
-
-```go
-inner, ok := outer["tenant"]
-if !ok {
-    inner = make(map[string]int)
-    outer["tenant"] = inner
-}
-inner["count"] = 1
-```
-
-### 7.6 浅拷贝与深拷贝
-
-```go
-m2 := m1
-```
-
-这只是复制 Map 值，`m1` 与 `m2` 仍共享底层 Map。
-
-```go
-m2 := maps.Clone(m1)
-```
-
-`maps.Clone` 会复制 Key 和 Value，但如果 Value 内部包含 Pointer、Slice 或 Map，引用的底层对象仍可能共享，因此它是浅拷贝。
-
-需要深拷贝时，必须根据 Value 的实际结构递归复制。
-
-### 7.7 nil Map 与空 Map 的协议差异
-
-使用 `encoding/json` 时，通常有：
-
-```go
-var nilMap map[string]int
-emptyMap := map[string]int{}
-```
-
-分别编码为：
-
-```json
-null
-```
-
-和：
-
-```json
-{}
-```
-
-接口协议若区分“未提供”和“提供但为空”，应明确约定初始化与序列化语义。
-
-### 7.8 稳定输出与测试
-
-不要直接比较 Map 遍历产生的文本顺序。测试日志、配置输出或签名内容需要稳定顺序时，应先排序 Key，或使用提供确定性编码的方案。
-
-### 7.9 性能优化顺序
-
-合理的优化流程：
-
-1. 明确延迟、吞吐或内存目标；
-2. 使用 Benchmark 和 Profile 定位瓶颈；
-3. 预估容量、缩短临界区；
-4. 再评估 `Mutex`、`RWMutex`、`sync.Map` 或分片；
-5. 使用真实数据分布验证，尤其关注热点 Key。
-
-不要在没有证据时提前引入复杂的分片或无锁设计。
+| 场景               | 推荐方案                  |
+| ---------------- | --------------------- |
+| 单 Goroutine 使用   | 普通 Map                |
+| 初始化完成后只读         | 普通 Map，发布前完成初始化       |
+| 一般并发读写           | `map + Mutex/RWMutex` |
+| 多步原子业务操作         | `map + Mutex`         |
+| Key 写一次、之后大量读取   | 可考虑 `sync.Map`        |
+| 不同 Key 高度独立、并发度高 | 可考虑 `sync.Map`        |
+| 已确认全局锁竞争严重       | 可考虑分片 Map             |
 
 ## 8. 面试表达
 
@@ -636,7 +570,7 @@ Map 元素不可寻址，其内部位置可能因增长或重组变化。应取�
 
 #### 5. Go Map 如何处理哈希冲突？
 
-Go 1.24+ 的 Swiss Table 使用开放寻址和 Group 探测；旧版使用 bucket 和 overflow bucket。最终都要比较完整 Key。
+Go 1.24+ 的 Swiss Table 使用**开放寻址和 Group 探测**；旧版使用 bucket 和 overflow bucket。最终都要比较完整 Key。
 
 #### 6. 扩容是否一次搬完所有元素？
 

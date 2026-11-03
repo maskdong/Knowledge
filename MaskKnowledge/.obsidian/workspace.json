@@ -11,10 +11,10 @@
             "id": "0758b696ef5758f6",
             "type": "leaf",
             "state": {
-              "type": "empty",
+              "type": "graph",
               "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
         ]
@@ -202,15 +202,17 @@
   },
   "active": "0758b696ef5758f6",
   "lastOpenFiles": [
-    "20-Wiki/04-数据存储/关系型数据库/Mysql 索引与查询.md",
+    "KV与文档数据库.md",
+    "20-Wiki/01-计算机基础/计算机基础.md",
+    "20-Wiki/Wiki-首页.md",
+    "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
     "2026-08-05.md",
+    "20-Wiki/04-数据存储/关系型数据库/Mysql 索引与查询.md",
     "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Go GMP 调度模型.md",
     "20-Wiki/02-编程语言/Go/02-方法接口与抽象/方法接口与抽象.md",
     "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Slice.md",
-    "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go Map.md",
     "20-Wiki/02-编程语言/Go/04-Goroutine与并发模型/Goroutine与并发模型.md",
     "20-Wiki/02-编程语言/Go/01-Go语言基础与类型系统/Go语言基础与类型系统.md",
-    "20-Wiki/01-计算机基础/计算机基础.md",
     "20-Wiki/02-编程语言/编程语言.md",
     "20-Wiki/02-编程语言/Go/06-内存管理与Runtime/内存管理与Runtime.md",
     "20-Wiki/02-编程语言/Go/06-内存管理与Runtime",
@@ -233,7 +235,6 @@
     "20-Wiki/02-编程语言/Go/Goroutine与并发模型",
     "20-Wiki/02-编程语言/Go/错误处理与资源管理",
     "编译原理.md",
-    "20-Wiki/Wiki-首页.md",
     "操作系统.md",
     "20-Wiki/10-工程能力与项目表达/工程能力与项目表达.md",
     "20-Wiki/09-AI-Infra/AI Infra.md"
